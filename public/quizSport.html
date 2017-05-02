@@ -212,6 +212,10 @@
 
         $scope.Checksport = {}
 
+        $scope.isEmpty = function(item){
+            return Object.keys(item).length == 1
+        }
+
         $scope.check = function(id){
                 Sport.get({ sport_id: id },function(sport){
                 $scope.score = sport.Ans

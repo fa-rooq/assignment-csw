@@ -212,6 +212,10 @@
 
         $scope.Checkmovie = {}
 
+        $scope.isEmpty = function(item){
+            return Object.keys(item).length == 1
+        }
+
         $scope.check = function(id){
                 Movie.get({ movie_id: id },function(movie){
                 $scope.score = movie.Ans

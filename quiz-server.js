@@ -158,6 +158,6 @@ app.use("*",function(req,res){
   res.status(404).send('404 Not found');
 });
 
-app.listen(80, function() {
+app.listen(50019, function() {
 	console.log("Server is running")
 });

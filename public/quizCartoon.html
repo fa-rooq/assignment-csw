@@ -212,6 +212,10 @@
 
         $scope.Checkcartoon = {}
 
+        $scope.isEmpty = function(item){
+            return Object.keys(item).length == 1
+        }
+
         $scope.check = function(id){
                 Cartoon.get({ cartoon_id: id },function(cartoon){
                 $scope.score = cartoon.Ans
