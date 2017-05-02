@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello AngularJS</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="angular-resource.min.js"></script>
+</head>
+<body ng-app="FamApp">
+	<div ng-controller="MainController">
+		<div class="container">
+			<div class="row">
+				<h1>Senior Project Show Cases CoE-ICT 2017</h1>
+				<table class="table table-striped">
+
+					<thead>
+						<tr> <!-- table row -->
+							<th></th><!-- table headder -->
+							<th>Project</th>
+							<th>like</th>
+							<th>share</th>
+							<th>dislike</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr ng-repeat="project in projects" ng-if="!isEmpty(project)">
+							<td>{{ $index+1 }}</td>
+							<td>{{ project.message }}</td>
+							<td>{{ project.likes }}</td>
+							<td>{{ project.share }}</td>
+							<td>{{ project.dislikes }}</td>
+							<td><button ng-click="edit(project.id)" class="btn btn-primary">แก้ไข</button></td>
+							<td><button ng-click="delete(project.id)" class="btn btn-danger">ลบ</button></td>
+						</tr>
+					</tbody>
+
+				</table>
+
+				<hr>
+				<div class="col col-md-6">
+					<h2>New Project</h2>
+					<form>
+					  <div class="form-group">
+					    <label for="">Project</label>
+					    <input type="hidden" class="form-control" ng-model="idx">
+					    <input type="text" class="form-control" placeholder="Project" ng-model="project.message" ng-init="project.message=''">
+					  </div>
+					  <div class="form-group">
+					    <label for="">Like</label>
+					    <input type="text" class="form-control" placeholder="Like" ng-model="project.likes">
+					  </div>
+					  <div class="form-group">
+					    <label for="">Share</label>
+					    <input type="text" class="form-control" placeholder="Share" ng-model="project.share">
+					  </div>
+					  <div class="form-group">
+					    <label for="">Dislike</label>
+					    <input type="text" class="form-control" placeholder="Dislike" ng-model="project.dislikes">
+					  </div>
+					  <button type="submit" class="btn btn-default" ng-click="add()">Submit</button>
+					</form>
+				</div>
+				<div class="col col-md-6">
+					<h2>Edit Project</h2>
+					<form>
+					  <div class="form-group">
+					    <label for="">Project</label>
+					    <input type="hidden" class="form-control" ng-model="Editproject.id">
+					    <input type="text" class="form-control" placeholder="Project" ng-model="Editproject.message" ng-init="Editproject.message=''">
+					  </div>
+					  <div class="form-group">
+					    <label for="">Like</label>
+					    <input type="text" class="form-control" placeholder="Like" ng-model="Editproject.likes">
+					  </div>
+					  <div class="form-group">
+					    <label for="">Share</label>
+					    <input type="text" class="form-control" placeholder="Share" ng-model="Editproject.share">
+					  </div>
+					  <div class="form-group">
+					    <label for="">Dislike</label>
+					    <input type="text" class="form-control" placeholder="Dislike" ng-model="Editproject.dislikes">
+					  </div>
+					  <button type="submit" class="btn btn-default" ng-click="update(Editproject.id)">Save</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var myApp = angular.module('FamApp', ['ngResource']);
+	myApp.controller('MainController', function($scope,$resource) {
+		var Project = $resource('/api/projects/:project_id',{'project_id' : '@id'},
+		{
+			'delete' : { 'method' :'delete' },
+			update : { method : 'PUT'}
+		})
+
+		$scope.projects = Project.query()  // reload data
+		$scope.Editproject = {}
+
+		$scope.add = function(){
+			Project.save({
+				message : $scope.project.message,
+				likes: $scope.project.likes,
+				share : $scope.project.share,
+				dislikes: $scope.project.dislikes
+			})
+			$scope.projects = Project.query()
+		}
+
+		$scope.delete = function(id){
+			Project.delete({'project_id' : id})
+			$scope.projects = Project.query()
+		}
+
+		$scope.isEmpty = function(item){
+			return Object.keys(item).length == 1
+		}
+
+		$scope.edit = function(id){
+			 Project.get({ project_id: id },function(project){
+			 	$scope.Editproject.id = project.id
+		        $scope.Editproject.message = project.message
+		        $scope.Editproject.likes = project.likes
+		        $scope.Editproject.share = project.share
+		        $scope.Editproject.dislikes = project.dislikes
+			 })
+
+			 $scope.editor = true
+		}
+
+		$scope.update = function(id){
+			Project.update({ project_id: id },
+			{
+				message : $scope.Editproject.message,
+				likes: $scope.Editproject.likes,
+				share : $scope.Editproject.share,
+				dislikes: $scope.Editproject.dislikes
+			})
+			$scope.projects = Project.query()
+		}
+	});
+</script>
+</html>

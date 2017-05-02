@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Movie</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- MetisMenu CSS -->
+    <link href="assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Marvel|Quicksand" rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="angular.min.js"></script>
+    <script src="angular-resource.min.js"></script>
+    
+</head>
+
+<body ng-app="FamApp">
+
+    <div id="wrapper"  ng-controller="MainController">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation"  style="position:fixed">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Quiz Online<i class="fa fa-question fa-fw"></i></a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+            </ul>
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" >
+                        <li>
+                            <a href="#"><i class="fa fa-th-list fa-fw"></i> Create Quiz</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="addSport.html"><i class="fa fa-dribbble fa-fw"></i> Sport</a>
+                                        </li>
+                                        <li>
+                                            <a href="addCartoon.html"><i class="fa fa-github-alt fa-fw"></i> Cartoon</a>
+                                        </li>
+                                        <li>
+                                            <a href="addMovie.html"><i class="fa fa-film fa-fw"></i> Movie</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" >
+                        <li>
+                            <a href="#"><i class="fa fa-th-list fa-fw"></i> Quiz</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="quizSport.html"><i class="fa fa-dribbble fa-fw"></i> Sport</a>
+                                        </li>
+                                        <li>
+                                            <a href="quizCartoon.html"><i class="fa fa-github-alt fa-fw"></i> Cartoon</a>
+                                        </li>
+                                        <li>
+                                            <a href="quizMovie.html"><i class="fa fa-film fa-fw"></i> Movie</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="col-sm-12">
+                    <div class="row">
+                    <div><br></div>
+                    <div><br></div>
+                    <div><br></div>
+                        <h1>Add movie question:</h1></div>
+                        <div class="row" ng-repeat="movie in movies" ng-if="!isEmpty(movie)">
+                        <div class="panel-body">
+                        <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="alert alert-info">
+                                <h3><b>Question: {{ movie.Question }}</b></h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-warning">
+                                {{ movie.Choice1 }}
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-warning">
+                                {{ movie.Choice2 }}
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-warning">
+                                {{ movie.Choice3 }}
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-warning">
+                                {{ movie.Choice4 }}
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="alert alert-success">
+                                <p>Answer is "{{ movie.Ans }}"<p>
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <center>
+                                <div><br></div>
+                                <button ng-click="edit(movie.id)" class="btn btn-primary">แก้ไข</button>
+                                <button ng-click="delete(movie.id)" class="btn btn-danger">ลบ</button>
+                            </center>
+                        </div>
+                        <div><br></div>
+                        <div><br></div>
+                        </div>
+
+                        <hr>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                        <div class="col col-md-6">
+                            <h2>New Question</h2>
+                            <form>
+                              <div class="form-group">
+                                <label for="">Question</label>
+                                <input type="hidden" class="form-control" ng-model="idx_movie">
+                                <input type="text" class="form-control" placeholder="Question" ng-model="movie.Question" ng-init="movie.Question=''">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice1</label>
+                                <input type="text" class="form-control" placeholder="Choice1" ng-model="movie.Choice1">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice2</label>
+                                <input type="text" class="form-control" placeholder="Choice2" ng-model="movie.Choice2">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice3</label>
+                                <input type="text" class="form-control" placeholder="Choice3" ng-model="movie.Choice3">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice4</label>
+                                <input type="text" class="form-control" placeholder="Choice4" ng-model="movie.Choice4">
+                              </div>
+                                <div class="form-group">
+                                <label for="">Answer</label>
+                                <input type="text" class="form-control" placeholder="Ans" ng-model="movie.Ans">
+                              </div>
+                              <div class="form-group">
+                                <button type="submit" class="btn btn-primary" ng-click="add()">Add Question</button>
+                              </div>
+                            </form>
+                        </div>
+                        <div class="col col-md-6">
+                            <h2>Edit Question</h2>
+                            <form>
+                              <div class="form-group">
+                                <label for="">Question</label>
+                                <input type="hidden" class="form-control" ng-model="idx_movie">
+                                <input type="text" class="form-control" placeholder="Question" ng-model="Editmovie.Question" ng-init="Editmovie.Question=''">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice1</label>
+                                <input type="text" class="form-control" placeholder="Choice1" ng-model="Editmovie.Choice1">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice2</label>
+                                <input type="text" class="form-control" placeholder="Choice2" ng-model="Editmovie.Choice2">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice3</label>
+                                <input type="text" class="form-control" placeholder="Choice3" ng-model="Editmovie.Choice3">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice4</label>
+                                <input type="text" class="form-control" placeholder="Choice4" ng-model="Editmovie.Choice4">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Answer</label>
+                                <input type="text" class="form-control" placeholder="Ans" ng-model="Editmovie.Ans">
+                              </div>
+                              <div class="form-group">
+                                <button type="submit" class="btn btn-warning" ng-click="update(Editmovie.id)">Update Question</button>
+                              </div>
+                            </form>
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+
+        <!-- /#page-wrapper -->
+
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="assets/dist/js/sb-admin-2.js"></script>
+    
+</body>
+<script>
+    var score=0;
+    var myApp = angular.module('FamApp', ['ngResource']);
+    myApp.controller('MainController', function($scope,$resource) {
+        var Movie = $resource('/api/movies/:movie_id',{'movie_id' : '@id'},
+        {
+            'delete' : { 'method' :'delete' },
+            update : { method : 'PUT'}
+        })
+
+        $scope.movies = Movie.query()  // reload data
+        $scope.Editmovie = {}
+
+        $scope.add = function(){
+            Movie.save({
+                Question : $scope.movie.Question,
+                Choice1: $scope.movie.Choice1,
+                Choice2 : $scope.movie.Choice2,
+                Choice3: $scope.movie.Choice3,
+                Choice4: $scope.movie.Choice4,
+                Ans: $scope.movie.Ans
+            })
+            $scope.movies = Movie.query()
+        }
+
+        $scope.delete = function(id){
+            Movie.delete({'movie_id' : id})
+            $scope.movies = Movie.query()
+        }
+
+        $scope.isEmpty = function(item){
+            return Object.keys(item).length == 1
+        }
+
+        $scope.edit = function(id){
+                Movie.get({ movie_id: id },function(movie){
+                $scope.Editmovie.id = movie.id
+                $scope.Editmovie.Question = movie.Question
+                $scope.Editmovie.Choice1 = movie.Choice1
+                $scope.Editmovie.Choice2 = movie.Choice2
+                $scope.Editmovie.Choice3 = movie.Choice3
+                $scope.Editmovie.Choice4 = movie.Choice4
+                $scope.Editmovie.Ans = movie.Ans
+             })
+
+             $scope.editor = true
+        }
+
+        $scope.update = function(id){
+            Movie.update({ movie_id: id },
+            {
+                Question : $scope.Editmovie.Question,
+                Choice1: $scope.Editmovie.Choice1,
+                Choice2 : $scope.Editmovie.Choice2,
+                Choice3: $scope.Editmovie.Choice3,
+                Choice4: $scope.Editmovie.Choice4,
+                Ans: $scope.Editmovie.Ans
+            })
+            $scope.movies = Movie.query()
+        }
+    });
+</script>
+</html>

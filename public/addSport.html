@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sport</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- MetisMenu CSS -->
+    <link href="assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Marvel|Quicksand" rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="angular.min.js"></script>
+    <script src="angular-resource.min.js"></script>
+    
+</head>
+
+<body ng-app="FamApp">
+
+    <div id="wrapper"  ng-controller="MainController">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation"  style="position:fixed">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Quiz Online<i class="fa fa-question fa-fw"></i></a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+            </ul>
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" >
+                        <li>
+                            <a href="#"><i class="fa fa-th-list fa-fw"></i> Create Quiz</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="addSport.html"><i class="fa fa-dribbble fa-fw"></i> Sport</a>
+                                        </li>
+                                        <li>
+                                            <a href="addCartoon.html"><i class="fa fa-github-alt fa-fw"></i> Cartoon</a>
+                                        </li>
+                                        <li>
+                                            <a href="addMovie.html"><i class="fa fa-film fa-fw"></i> Movie</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" >
+                        <li>
+                            <a href="#"><i class="fa fa-th-list fa-fw"></i> Quiz</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="quizSport.html"><i class="fa fa-dribbble fa-fw"></i> Sport</a>
+                                        </li>
+                                        <li>
+                                            <a href="quizCartoon.html"><i class="fa fa-github-alt fa-fw"></i> Cartoon</a>
+                                        </li>
+                                        <li>
+                                            <a href="quizMovie.html"><i class="fa fa-film fa-fw"></i> Movie</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="col-sm-12">
+                    <div class="row">
+                    <div><br></div>
+                    <div><br></div>
+                    <div><br></div>
+                        <h1>Add sport question:</h1></div>
+                        <div class="row" ng-repeat="sport in sports" ng-if="!isEmpty(sport)">
+                        <div class="panel-body">
+                        <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="alert alert-info">
+                                <h3><b>Question: {{ sport.Question }}</b></h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-warning">
+                                {{ sport.Choice1 }}
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-warning">
+                                {{ sport.Choice2 }}
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-warning">
+                                {{ sport.Choice3 }}
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <div class="alert alert-warning">
+                                {{ sport.Choice4 }}
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="alert alert-success">
+                                <p>Answer is "{{ sport.Ans }}"<p>
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <center>
+                                <div><br></div>
+                                <button ng-click="edit(sport.id)" class="btn btn-primary">แก้ไข</button>
+                                <button ng-click="delete(sport.id)" class="btn btn-danger">ลบ</button>
+                            </center>
+                        </div>
+                        <div><br></div>
+                        <div><br></div>
+                        </div>
+
+                        <hr>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                        <div class="col col-md-6">
+                            <h2>New Question</h2>
+                            <form>
+                              <div class="form-group">
+                                <label for="">Question</label>
+                                <input type="hidden" class="form-control" ng-model="idx_sport">
+                                <input type="text" class="form-control" placeholder="Question" ng-model="sport.Question" ng-init="sport.Question=''">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice1</label>
+                                <input type="text" class="form-control" placeholder="Choice1" ng-model="sport.Choice1">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice2</label>
+                                <input type="text" class="form-control" placeholder="Choice2" ng-model="sport.Choice2">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice3</label>
+                                <input type="text" class="form-control" placeholder="Choice3" ng-model="sport.Choice3">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice4</label>
+                                <input type="text" class="form-control" placeholder="Choice4" ng-model="sport.Choice4">
+                              </div>
+                                <div class="form-group">
+                                <label for="">Answer</label>
+                                <input type="text" class="form-control" placeholder="Ans" ng-model="sport.Ans">
+                              </div>
+                              <div class="form-group">
+                                <button type="submit" class="btn btn-primary" ng-click="add()">Add Question</button>
+                              </div>
+                            </form>
+                        </div>
+                        <div class="col col-md-6">
+                            <h2>Edit Question</h2>
+                            <form>
+                              <div class="form-group">
+                                <label for="">Question</label>
+                                <input type="hidden" class="form-control" ng-model="idx_sport">
+                                <input type="text" class="form-control" placeholder="Question" ng-model="Editsport.Question" ng-init="Editsport.Question=''">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice1</label>
+                                <input type="text" class="form-control" placeholder="Choice1" ng-model="Editsport.Choice1">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice2</label>
+                                <input type="text" class="form-control" placeholder="Choice2" ng-model="Editsport.Choice2">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice3</label>
+                                <input type="text" class="form-control" placeholder="Choice3" ng-model="Editsport.Choice3">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Choice4</label>
+                                <input type="text" class="form-control" placeholder="Choice4" ng-model="Editsport.Choice4">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Answer</label>
+                                <input type="text" class="form-control" placeholder="Ans" ng-model="Editsport.Ans">
+                              </div>
+                              <div class="form-group">
+                                <button type="submit" class="btn btn-warning" ng-click="update(Editsport.id)">Update Question</button>
+                              </div>
+                            </form>
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+
+        <!-- /#page-wrapper -->
+
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="assets/dist/js/sb-admin-2.js"></script>
+    
+</body>
+<script>
+    var score=0;
+    var myApp = angular.module('FamApp', ['ngResource']);
+    myApp.controller('MainController', function($scope,$resource) {
+        var Sport = $resource('/api/sports/:sport_id',{'sport_id' : '@id'},
+        {
+            'delete' : { 'method' :'delete' },
+            update : { method : 'PUT'}
+        })
+
+        $scope.sports = Sport.query()  // reload data
+        $scope.Editsport = {}
+
+        $scope.add = function(){
+            Sport.save({
+                Question : $scope.sport.Question,
+                Choice1: $scope.sport.Choice1,
+                Choice2 : $scope.sport.Choice2,
+                Choice3: $scope.sport.Choice3,
+                Choice4: $scope.sport.Choice4,
+                Ans: $scope.sport.Ans
+            })
+            $scope.sports = Sport.query()
+        }
+
+        $scope.delete = function(id){
+            Sport.delete({'sport_id' : id})
+            $scope.sports = Sport.query()
+        }
+
+        $scope.isEmpty = function(item){
+            return Object.keys(item).length == 1
+        }
+
+        $scope.edit = function(id){
+                Sport.get({ sport_id: id },function(sport){
+                $scope.Editsport.id = sport.id
+                $scope.Editsport.Question = sport.Question
+                $scope.Editsport.Choice1 = sport.Choice1
+                $scope.Editsport.Choice2 = sport.Choice2
+                $scope.Editsport.Choice3 = sport.Choice3
+                $scope.Editsport.Choice4 = sport.Choice4
+                $scope.Editsport.Ans = sport.Ans
+             })
+
+             $scope.editor = true
+        }
+
+        $scope.update = function(id){
+            Sport.update({ sport_id: id },
+            {
+                Question : $scope.Editsport.Question,
+                Choice1: $scope.Editsport.Choice1,
+                Choice2 : $scope.Editsport.Choice2,
+                Choice3: $scope.Editsport.Choice3,
+                Choice4: $scope.Editsport.Choice4,
+                Ans: $scope.Editsport.Ans
+            })
+            $scope.sports = Sport.query()
+        }
+    });
+</script>
+</html>

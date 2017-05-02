@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Quiz Online</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- MetisMenu CSS -->
+    <link href="assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="https://fonts.googleapis.com/css?family=Marvel|Quicksand" rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="angular.min.js"></script>
+    <script src="angular-resource.min.js"></script>
+    
+</head>
+
+<body ng-app="FamApp">
+
+    <div id="wrapper"  ng-controller="MainController">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php"><i class="fa fa-rss fa-fw"></i>Quiz Online</a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <!-- <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Puris Mardkuea
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="config-editor.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{{ url ('login') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul> -->
+                    <!-- /.dropdown-user -->
+
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <!-- <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                        </li> -->
+                        <!-- <li {{ (Request::is('/') ? 'class="active"' : '') }}>
+                            <a href="localhost"><i class="fa fa-home fa-fw"></i> Home</a>
+                        </li> -->
+                        <li>
+                            <a href="#"><i class="fa fa-gears fa-fw"></i>ข้อสอบ<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    
+                                    <ul class="nav nav-third-level">
+                                            <li>
+                                            <a href="add.html">Sport</a>
+                                        </li>
+                                        <li>
+                                            <a href="add.html">Cartoon</a>
+                                        </li>
+                                        <li>
+                                            <a href="add.html">Movie</a>
+                                        </li>
+                                        <!--<li>
+                                            <a href="list-allgroup.php">All packages</a>
+                                        </li>-->
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                                <!--<li>
+                                    <a href="#"><i class="fa fa-plus-circle fa-fw"></i> Add<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="add-newuser.php">New user</a>
+                                        </li>
+                                        <li>
+                                            <a href="add-newgroup.php">New package</a>
+                                        </li>
+                                        <li>
+                                            <a href="add-newcards.php">New cards</a>
+                                        </li>
+                                    </ul>
+                                    /.nav-third-level
+                                </li>-->
+                                <!-- <li>
+                                    <a href="#"><i class="fa fa-minus-circle fa-fw"></i> Remove<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="remove-user.php">User</a>
+                                        </li>
+                                        <li>
+                                            <a href="remove-group.php">Package</a>
+                                        </li>
+                                    </ul>
+                                </li> -->
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!--<li >
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Accounting<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
+                                    <a href="acct-last-closed-conns.php">Last closed conns.</a>
+                                </li>
+                                <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
+                                    <a href="acct-all.php">All Accounting</a>
+                                </li>
+                                <li {{ (Request::is('*notifications') ? 'class="active"' : '') }}>
+                                    <a href="acct-username-input-all.php">Per User</a>
+                                </li>
+                                <li {{ (Request::is('*typography') ? 'class="active"' : '') }}>
+                                    <a href="acct-date-input.php">Per Date</a>
+                                </li>
+                                <li {{ (Request::is('*icons') ? 'class="active"' : '') }}>
+                                    <a href="acct-username-input.php"> Per User and Date</a>
+                                </li>                                
+                            </ul>
+                            /.nav-second-level
+                        </li> -->
+                        <!--<li >
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Views<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
+                                    <a href="online-users.php">Online users</a>
+                                </li>
+                                <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
+                                    <a href="top-downloads.php">Top downloads</a>
+                                </li>
+                                <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
+                                    <a href="top-uploads.php">Top uploads</a>
+                                </li>
+                                <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
+                                    <a href="top-times.php">Top times</a>
+                                </li>
+                            </ul>
+                            /.nav-second-level
+                        </li>-->
+                        <!--<li >
+                            <a href="config-editor.php"><i class="fa fa-wrench fa-fw"></i> Config editor<span class="fa arrow"></span> </a> 
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
+                                    <a href="config-editor.php">Config editor</a>
+                                </li>
+                                <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
+                                    <a href="list-allnas.php">NAS table</a>
+                                </li>
+                                <li {{ (Request::is('*notifications') ? 'class="active"' : '') }}>
+                                    <a href="list-radius-attribute.php">freeRADIUS attributes</a>
+                                </li>
+                                <li {{ (Request::is('*typography') ? 'class="active"' : '') }}>
+                                    <a href="test-user-connectivity.php">Test connectivity</a>
+                                </li>
+                                <li {{ (Request::is('*icons') ? 'class="active"' : '') }}>
+                                    <a href="disconnect-user.php"> Force logout user</a>
+                                </li>                                
+                            </ul> 
+                            /.nav-second-level 
+                        </li> -->
+                        <!-- <li {{ (Request::is('/') ? 'class="active"' : '') }}>
+                            <a href="about.php"><i class="fa fa-question-circle fa-fw"></i> About</a>
+                        </li> -->
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <h1>Quiz</h1></div>
+                        <div class="row" ng-repeat="project in projects" ng-if="!isEmpty(project)">
+                        <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                        <div class="w3-panel w3-card" >
+                            <p>{{ project.Question }}</p></div></div>
+                            <div class="col-sm-2"></div></div>
+                    <div class="row">
+                    <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                        <div class="w3-panel w3-card">
+                            <p>{{ project.Choice1 }}</p></div></div>
+                        <div class="col-sm-2"></div>
+                    <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                        <div class="w3-panel w3-card">
+                            <p>{{ project.Choice2 }}</p></div></div>
+                        <div class="col-sm-2"></div></div>
+
+                        <div class="row">
+                    <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                        <div class="w3-panel w3-card">
+                            <p>{{ project.Choice3 }}</p></div></div>
+                        <div class="col-sm-2"></div>
+                    <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                        <div class="w3-panel w3-card">
+                            <p>{{ project.Choice4 }}</p></div></div>
+                        <div class="col-sm-2"></div></div>
+                    <div class="row"><center>
+                            <button ng-click="edit(project.id)" class="btn btn-primary">แก้ไข</button>
+                            <button ng-click="delete(project.id)" class="btn btn-danger">ลบ</button>
+                            </center></div></div>
+
+
+
+
+                <hr>
+                <div class="col col-md-6">
+                    <h2>New Question</h2>
+                    <form>
+                      <div class="form-group">
+                        <label for="">Question</label>
+                        <input type="hidden" class="form-control" ng-model="idx">
+                        <input type="text" class="form-control" placeholder="Question" ng-model="project.Question" ng-init="project.Question=''">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Choice1</label>
+                        <input type="text" class="form-control" placeholder="Choice1" ng-model="project.Choice1">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Choice2</label>
+                        <input type="text" class="form-control" placeholder="Choice2" ng-model="project.Choice2">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Choice3</label>
+                        <input type="text" class="form-control" placeholder="Choice3" ng-model="project.Choice3">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Choice4</label>
+                        <input type="text" class="form-control" placeholder="Choice4" ng-model="project.Choice4">
+                      </div>
+                      <button type="submit" class="btn btn-default" ng-click="add()">Add</button>
+                    </form>
+                </div>
+                <div class="col col-md-6">
+                    <h2>Edit Question</h2>
+                    <form>
+                      <div class="form-group">
+                        <label for="">Question</label>
+                        <input type="hidden" class="form-control" ng-model="idx">
+                        <input type="text" class="form-control" placeholder="Question" ng-model="Editproject.Question" ng-init="Editproject.Question=''">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Choice1</label>
+                        <input type="text" class="form-control" placeholder="Choice1" ng-model="Editproject.Choice1">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Choice2</label>
+                        <input type="text" class="form-control" placeholder="Choice2" ng-model="Editproject.Choice2">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Choice3</label>
+                        <input type="text" class="form-control" placeholder="Choice3" ng-model="Editproject.Choice3">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Choice4</label>
+                        <input type="text" class="form-control" placeholder="Choice4" ng-model="Editproject.Choice4">
+                      </div>
+                      <button type="submit" class="btn btn-default" ng-click="update(Editproject.id)">Edit</button>
+                    </form>
+                </div><br>
+                
+
+
+
+
+
+                    </div>
+                    </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="assets/dist/js/sb-admin-2.js"></script>
+    
+</body>
+<script>
+    var myApp = angular.module('FamApp', ['ngResource']);
+    myApp.controller('MainController', function($scope,$resource) {
+        var Project = $resource('/api/projects/:project_id',{'project_id' : '@id'},
+        {
+            'delete' : { 'method' :'delete' },
+            update : { method : 'PUT'}
+        })
+
+        $scope.projects = Project.query()  // reload data
+        $scope.Editproject = {}
+
+        $scope.add = function(){
+            Project.save({
+                Question : $scope.project.Question,
+                Choice1: $scope.project.Choice1,
+                Choice2 : $scope.project.Choice2,
+                Choice3: $scope.project.Choice3,
+                Choice4: $scope.project.Choice4
+            })
+            $scope.projects = Project.query()
+        }
+
+        $scope.delete = function(id){
+            Project.delete({'project_id' : id})
+            $scope.projects = Project.query()
+        }
+
+        $scope.isEmpty = function(item){
+            return Object.keys(item).length == 1
+        }
+
+        $scope.edit = function(id){
+                Project.get({ project_id: id },function(project){
+                $scope.Editproject.id = project.id
+                $scope.Editproject.Question = project.Question
+                $scope.Editproject.Choice1 = project.Choice1
+                $scope.Editproject.Choice2 = project.Choice2
+                $scope.Editproject.Choice3 = project.Choice3
+                $scope.Editproject.Choice4 = project.Choice4
+             })
+
+             $scope.editor = true
+        }
+
+        $scope.update = function(id){
+            Project.update({ project_id: id },
+            {
+                Question : $scope.Editproject.Question,
+                Choice1: $scope.Editproject.Choice1,
+                Choice2 : $scope.Editproject.Choice2,
+                Choice3: $scope.Editproject.Choice3,
+                Choice4: $scope.Editproject.Choice4
+            })
+            $scope.projects = Project.query()
+        }
+    });
+</script>
+</html>
